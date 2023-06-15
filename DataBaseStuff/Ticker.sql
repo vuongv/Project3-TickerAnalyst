@@ -7,12 +7,12 @@
 -- two dots ('..' - without quotes).
 
 CREATE TABLE "Ticker" (
-    "Volume" double   NOT NULL,
-    "Volume_Weighted_Average_Price" double   NOT NULL,
-    "Open_Price" double   NOT NULL,
-    "Closing_Price" double   NOT NULL,
-    "Day_Highest" double   NOT NULL,
-    "Day_Lowest" double   NOT NULL,
+    "Volume" DECIMAL   NOT NULL,
+    "Volume_Weighted_Average_Price" DECIMAL   NOT NULL,
+    "Open_Price" DECIMAL   NOT NULL,
+    "Closing_Price" DECIMAL   NOT NULL,
+    "Day_Highest" DECIMAL   NOT NULL,
+    "Day_Lowest" DECIMAL   NOT NULL,
     "Date" timestamp   NOT NULL,
     "Number_of_Transaction" int   NOT NULL
 );
