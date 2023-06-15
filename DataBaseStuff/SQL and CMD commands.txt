@@ -1,0 +1,12 @@
+CREATE DATABASE Ticker;
+psql -U postgres -d ticker -f .\DataBaseStuff\Ticker.sql
+
+\l
+
+\c ticker
+
+COPY "Ticker" FROM 
+'C:\Users\khoav\Project3-TickerAnalyst\Data\GSIT.csv'
+DELIMITER
+','
+CSV HEADER;

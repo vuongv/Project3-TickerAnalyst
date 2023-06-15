@@ -1,0 +1,6 @@
+1. Retrieve JSON file from GET request with Python
+2. Extract results and Export JSON file as CSV using Pandas
+3. Transform the data with Pandas
+4. Create DataBase Diagram
+5. Upload the Diagram to PostgresDB
+6. Upload Data to PostgresDB

@@ -19,5 +19,6 @@ df = df.rename(columns={'v' :'Volume',
                         'l' : 'Day Lowest',
                         't' : 'Date',
                         'n' : 'Number of Transaction'})
+
 print(df)
 df.to_csv("Data/GSIT.csv", index=False)
