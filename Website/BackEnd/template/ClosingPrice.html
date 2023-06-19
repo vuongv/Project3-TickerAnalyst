@@ -6,7 +6,9 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
+    <script src="
+https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline@2.0.3/src/chartjs-plugin-trendline.min.js
+"></script>
 </head>
 <body>
   <canvas id="myChart"></canvas>
@@ -31,6 +33,11 @@
               label: 'Closing',
               data: openPrice,
               borderColor: 'blue',
+              trendlineLinear: {
+                  style: "rgba(255,255,0, .8)",
+                  lineStyle: "dotted|solid",
+                  width: 2
+              },
               fill: false
             }]
           },

@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "chartjs-plugin-trendline": "^2.0.3"
+  }
+}
