@@ -51,8 +51,8 @@ def VolumeWeightedAverage():
 
     return records
 
-@app.route('/OpenPrice')
-def OpenPrice():
+@app.route('/OpenPriceData')
+def OpenPriceData():
     conn = psycopg2.connect("postgresql://postgres:admin@localhost:5432/ticker")
     cur = conn.cursor()
     cur.execute("SELECT \"Open_Price\" FROM \"Ticker\"")
@@ -63,10 +63,14 @@ def OpenPrice():
     for row in results:
         records.append(float(row[0]))
 
-    return records
+    return jsonify(records)
 
-@app.route('/ClosingPrice')
-def ClosingPrice():
+@app.route('/OpenPriceChart')
+def OpenPrice():
+    return render_template('OpenPrice.html')
+
+@app.route('/ClosingPriceData')
+def ClosingPriceData():
     conn = psycopg2.connect("postgresql://postgres:admin@localhost:5432/ticker")
     cur = conn.cursor()
     cur.execute("SELECT \"Closing_Price\" FROM \"Ticker\"")
@@ -77,7 +81,11 @@ def ClosingPrice():
     for row in results:
         records.append(float(row[0]))
 
-    return records
+    return jsonify(records)
+
+@app.route('/ClosingPrice')
+def ClosingPrice():
+    return render_template('ClosingPrice.html')
 
 @app.route('/DayHighest')
 def DayHighest():

@@ -12,13 +12,13 @@
   <canvas id="myChart"></canvas>
     
   <script type="text/javascript">
-    var volumeData;
+    var openPrice;
     var dateData;
-    d3.json("http://127.0.0.1:5000/VolumeChartData", function(data) {
-        volumeData = data;
+    d3.json("http://127.0.0.1:5000/OpenPriceData", function(data) {
+        openPrice = data;
        d3.json("http://127.0.0.1:5000/Date", function(date){
         dateData = date;
-        console.log(volumeData);
+        console.log(openPrice);
         console.log(dateData);
         const ctx = document.getElementById('myChart').getContext('2d');
 
@@ -28,8 +28,8 @@
           data: {
             labels: dateData,
             datasets: [{
-              label: 'Volume',
-              data: volumeData,
+              label: 'Open',
+              data: openPrice,
               borderColor: 'blue',
               fill: false
             }]
@@ -80,9 +80,9 @@
 
            return pos;
           }
-        const BiggestChange = findBiggestChange(volumeData);
+        const BiggestChange = findBiggestChange(openPrice);
         console.log(BiggestChange);
-        const BiggestChangePost = findBiggestChangePosition(volumeData);
+        const BiggestChangePost = findBiggestChangePosition(openPrice);
         console.log(BiggestChangePost)
        })
        
