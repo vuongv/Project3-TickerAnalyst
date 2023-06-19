@@ -6,7 +6,7 @@ import plotly
 import plotly.express as px
 import json
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder='template')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:admin@localhost:5432/ticker'
 
 db = SQLAlchemy(app)
@@ -135,8 +135,8 @@ def NumberOfTransaction():
 
     return records
 
-@app.route('/VolumeChart')
-def VolumeChart():
+@app.route('/VolumeChartData')
+def VolumeChartData():
     conn = psycopg2.connect("postgresql://postgres:admin@localhost:5432/ticker")
     cur1 = conn.cursor()
     cur2 = conn.cursor()
@@ -163,14 +163,21 @@ def VolumeChart():
     ]
 
     layout = plotly.graph_objs.Layout(
-        title='Volume Trade',
-        xaxis=dict(title="Date"),
-        yaxis=dict(Title="Volume")
+        title='Volume Trade'
     )
-
+    x = [0,2,2,2]
     fig = plotly.graph_objs.Figure(data=data, layout=layout)
+    graphJSON = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
 
-    return render_template('index.html', graphJSON=fig.to_json())
+    return jsonify(VolumeRecords)
+
+@app.route("/VolumeChart")
+def VolumeChart(): 
+    return render_template('VolumeChartIndex.html') #,data = VolumeRecords)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 if __name__ == "__main__":
   app.run()

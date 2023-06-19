@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plotly Visualization</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    d3.json("http://127.0.0.1:5000/VolumeChartData", function(data) {
+        console.log(data);
+    });
+       
+    </script>
+</head>
+<body>
+    <div id="chart">
+      
+    </div>
+    
+    
+</body>
+</html>
